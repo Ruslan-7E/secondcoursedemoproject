@@ -1,7 +1,9 @@
 package domain;
 
 public interface PrintService {
-    void print(Person[] peoples);
+    default void print(Person[] peoples){
+        System.out.println("Такой отчет смотреть не положено");
+    }
 
     void print(Customer[] customers);
 
