@@ -34,6 +34,7 @@ public class Main {
         }
 
         printReport(printServiceForInvestor, customers, gamers, peoples);
+        printReport(printServiceForEmployee, customers, gamers, peoples);
     }
 
     private static void printReport(PrintService printService, Customer[] customers, Gamer[] gamers, Person[] peoples) {
