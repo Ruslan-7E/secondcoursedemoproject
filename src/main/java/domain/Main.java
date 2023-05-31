@@ -22,9 +22,8 @@ public class Main {
                 new Gamer("Danny", 28, 116, "PC"),
         };
 
-        PrintServiceForInvestor printServiceForInvestor = new PrintServiceForInvestor();
-        printServiceForInvestor.print(customers);
-        printServiceForInvestor.print(gamers);
+        PrintService printServiceForInvestor = new PrintServiceForInvestor();
+        PrintService printServiceForEmployee = new PrintServiceForEmployee();
 
         Person[] peoples = new Person[gamers.length + customers.length];
         for (int i = 0; i < customers.length; i++) {
@@ -33,7 +32,14 @@ public class Main {
         for (int i = 0; i < gamers.length; i++) {
             peoples[i + customers.length] = gamers[i];
         }
-        printServiceForInvestor.print(peoples);
+
+        printReport(printServiceForInvestor, customers, gamers, peoples);
+    }
+
+    private static void printReport(PrintService printService, Customer[] customers, Gamer[] gamers, Person[] peoples) {
+        printService.print(customers);
+        printService.print(gamers);
+        printService.print(peoples);
     }
 }
 
