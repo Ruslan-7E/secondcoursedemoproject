@@ -3,13 +3,13 @@ package domain;
 public class Main {
 
     public static void main(String[] args) {
-        Person[] peoples = {
-                new Person("Sarah", 30, 112),
-                new Person("John", 12, 113),
-                new Person("Phil", 33, 114),
-                new Person("Frank", 18, 115),
-                new Person("Danny", 28, 116),
-        };
+//        Person[] peoples = {
+//                new Person("Sarah", 30, 112),
+//                new Person("John", 12, 113),
+//                new Person("Phil", 33, 114),
+//                new Person("Frank", 18, 115),
+//                new Person("Danny", 28, 116),
+//        };
 
         Customer[] customers = {
                 new Customer("John", 12, 113, 111321),
@@ -22,10 +22,18 @@ public class Main {
                 new Gamer("Danny", 28, 116, "PC"),
         };
 
-        PrintService printService = new PrintService();
-        printService.print(peoples);
-        printService.print(customers);
-        printService.print(gamers);
+        PrintServiceForInvestor printServiceForInvestor = new PrintServiceForInvestor();
+        printServiceForInvestor.print(customers);
+        printServiceForInvestor.print(gamers);
+
+        Person[] peoples = new Person[gamers.length + customers.length];
+        for (int i = 0; i < customers.length; i++) {
+            peoples[i] = customers[i];
+        }
+        for (int i = 0; i < gamers.length; i++) {
+            peoples[i + customers.length] = gamers[i];
+        }
+        printServiceForInvestor.print(peoples);
     }
 }
 
